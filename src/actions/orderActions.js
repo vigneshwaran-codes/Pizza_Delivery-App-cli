@@ -5,7 +5,7 @@ export const placeOrder = (token, subtotal) => async (dispatch, getState) => {
   const cartItems = getState().cartReducer.cartItems
 
   try {
-    const response = await axios.post('http://localhost:8000/api/orders/placeorder', { token, subtotal, currentUser, cartItems })
+    const response = await axios.post('https://pizza-delivery-app.onrender.com/api/orders/placeorder', { token, subtotal, currentUser, cartItems })
     dispatch({ type: 'PLACE_ORDER_SUCCESS' })
     console.log(response)
   } catch (error) {
@@ -19,7 +19,7 @@ export const getUserOrders = () => async (dispatch, getState) => {
   dispatch({ type: 'GET_USER_ORDERS_REQUEST' })
 
   try {
-    const response = await axios.post('http://localhost:8000/api/orders/getuserorders', { userid: currentUser._id })
+    const response = await axios.post('https://pizza-delivery-app.onrender.com/api/orders/getuserorders', { userid: currentUser._id })
 
     console.log(response)
 
@@ -34,7 +34,7 @@ export const getAllOrders = () => async (dispatch, getState) => {
   dispatch({ type: 'GET_ALLORDERS_REQUEST' })
 
   try {
-    const response = await axios.get('http://localhost:8000/api/orders/getallorders')
+    const response = await axios.get('https://pizza-delivery-app.onrender.com/api/orders/getallorders')
 
     console.log(response)
 
@@ -46,7 +46,7 @@ export const getAllOrders = () => async (dispatch, getState) => {
 
 export const deliverOrder = (orderid) => async dispatch => {
   try {
-    const response = await axios.post('http://localhost:8000/api/orders/deliverorder', { orderid })
+    const response = await axios.post('https://pizza-delivery-app.onrender.com/api/orders/deliverorder', { orderid })
     console.log(response)
     alert('Order Delivered')
     const orders = await axios.get('api/orders/getallorders')

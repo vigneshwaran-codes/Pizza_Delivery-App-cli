@@ -15,7 +15,7 @@ export const loginUser = (user) => async dispatch => {
   dispatch({ type: 'USER_LOGIN_REQUEST' })
 
   try {
-    const response = await axios.post('http://localhost:8000/api/users/login', user)
+    const response = await axios.post('https://pizza-delivery-app.onrender.com/api/users/login', user)
     console.log(response)
     dispatch({ type: 'USER_LOGIN_SUCCESS', payload: response.data })
     localStorage.setItem('currentUser', JSON.stringify(response.data))
@@ -34,7 +34,7 @@ export const getAllUsers = () => async dispatch => {
   dispatch({ type: 'GET_USERS_REQUEST' })
 
   try {
-    const response = await axios.get('http://localhost:8000/api/users/getallusers')
+    const response = await axios.get('https://pizza-delivery-app.onrender.com/api/users/getallusers')
     console.log(response)
     dispatch({ type: 'GET_USERS_SUCCESS', payload: response.data })
   } catch (error) {
@@ -44,7 +44,7 @@ export const getAllUsers = () => async dispatch => {
 
 export const deleteUser = (userid) => async dispatch => {
   try {
-    await axios.post('http://localhost:8000/api/users/deleteuser', { userid })
+    await axios.post('https://pizza-delivery-app.onrender.com/api/users/deleteuser', { userid })
     alert('User deleted successfully')
     window.location.reload()
   } catch (error) {
