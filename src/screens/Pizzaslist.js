@@ -1,38 +1,39 @@
-import React, { useState, useEffect } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import { Link } from "react-router-dom";
-import { deletePizza, getAllPizzas } from "../actions/pizzaActions";
-import Error from "../components/Error";
-import Filter from "../components/Filter";
-import Loading from "../components/Loading";
-export default function Pizzaslist() {
-  const dispatch = useDispatch();
+import React, { useEffect } from 'react'
+import { useDispatch, useSelector } from 'react-redux'
+import { Link } from 'react-router-dom'
+import { deletePizza, getAllPizzas } from '../actions/pizzaActions'
+import Error from '../components/Error'
+// import Filter from '../components/Filter'
+import Loading from '../components/Loading'
+export default function Pizzaslist () {
+  const dispatch = useDispatch()
 
-  const pizzasstate = useSelector((state) => state.getAllPizzasReducer);
+  const pizzasstate = useSelector((state) => state.getAllPizzasReducer)
 
-  const { pizzas, error, loading } = pizzasstate;
+  const { pizzas, error, loading } = pizzasstate
   useEffect(() => {
-    dispatch(getAllPizzas());
-  }, []);
-  return <div>
-    <h2>Pizzas List</h2>
-    {loading && (<Loading/>)}
-    {error && (<Error error='Something went wrong'/>)}
+    dispatch(getAllPizzas())
+  }, [dispatch])
+  return (
+    <div>
+  <h2>Pizzas List</h2>
+  {loading && (<Loading />)}
+  {error && (<Error error='Something went wrong' />)}
 
-    <table  className='table table-bordered table-responsive-sm'>
+  <table className='table table-bordered table-responsive-sm'>
 
-        <thead className='thead-dark'>
-            <tr>
-                <th>Name</th>
-                <th>Prices</th>
-                <th>Category</th>
-                <th>Actions</th>
+      <thead className='thead-dark'>
+          <tr>
+              <th>Name</th>
+              <th>Prices</th>
+              <th>Category</th>
+              <th>Actions</th>
             </tr>
         </thead>
-        <tbody>
-        {pizzas && pizzas.map(pizza=>{
-
-            return <tr>
+      <tbody>
+          {pizzas && pizzas.map(pizza => {
+          return (
+<tr>
                 <td>{pizza.name}</td>
                 <td>
 
@@ -48,12 +49,12 @@ export default function Pizzaslist() {
                 </td>
 
             </tr>
-
+)
         })}
         </tbody>
 
     </table>
 
-   
-  </div>;
+</div>
+  )
 }

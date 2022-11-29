@@ -11,13 +11,14 @@ import Userslist from './Userslist'
 export default function Adminscreen () {
   const userstate = useSelector((state) => state.loginUserReducer)
   const { currentUser } = userstate
+  // eslint-disable-next-line no-unused-vars
   const dispatch = useDispatch()
 
   useEffect(() => {
     if (!currentUser.isAdmin) {
       window.location.href = '/'
     }
-  }, [])
+  }, [currentUser.isAdmin])
 
   return (
     <div>

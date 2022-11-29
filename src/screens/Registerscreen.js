@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { registerUser } from '../actions/userActions'
 import Error from '../components/Error'
@@ -41,9 +41,11 @@ export default function Registerscreen () {
           <div>
             <input required type='text' placeholder='name' className='form-control' value={name} onChange={(e) => { setname(e.target.value) }} />
             <input
-              required type='text' pattern='/^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/' required
+              type='text'
+              pattern='/^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/' 
               placeholder='email'
               className='form-control' value={email} onChange={(e) => { setemail(e.target.value) }}
+              required
             />
             <input
               type='password'

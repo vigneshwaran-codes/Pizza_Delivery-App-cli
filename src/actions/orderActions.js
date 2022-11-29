@@ -30,9 +30,9 @@ export const getUserOrders = () => async (dispatch, getState) => {
 }
 
 export const getAllOrders = () => async (dispatch, getState) => {
+  // eslint-disable-next-line no-unused-vars
   const currentUser = getState().loginUserReducer.currentUser
   dispatch({ type: 'GET_ALLORDERS_REQUEST' })
-
   try {
     const response = await axios.get('https://pizza-delivery-app.onrender.com/api/orders/getallorders')
 

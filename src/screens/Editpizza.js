@@ -19,6 +19,7 @@ export default function Editpizza ({ match }) {
   const { pizza, error, loading } = getpizzabyidstate
 
   const editpizzastate = useSelector((state) => state.editPizzaReducer)
+  // eslint-disable-next-line no-unused-vars
   const { editloading, editerror, editsuccess } = editpizzastate
 
   useEffect(() => {
@@ -37,7 +38,7 @@ export default function Editpizza ({ match }) {
     } else {
       dispatch(getPizzaById(match.params.pizzaid))
     }
-  }, [pizza, dispatch])
+  }, [pizza, dispatch, match.params.pizzaid])
 
   function formHandler (e) {
     e.preventDefault()

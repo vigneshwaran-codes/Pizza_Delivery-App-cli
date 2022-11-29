@@ -28,12 +28,12 @@ export default function Navbar () {
             {currentUser
               ? (
                 <div className='dropdown mt-2'>
-                  <a style={{ color: 'black' }} className='dropdown-toggle' type='button' id='dropdownMenuButton' data-toggle='dropdown' aria-haspopup='true' aria-expanded='false'>
+                  <button style={{ color: 'black' }} className='dropdown-toggle' type='button' id='dropdownMenuButton' data-toggle='dropdown' aria-haspopup='true' aria-expanded='false'>
                     {currentUser.name}
-                  </a>
+                  </button>
                   <div className='dropdown-menu' aria-labelledby='dropdownMenuButton'>
                     <a className='dropdown-item' href='/orders'>Orders</a>
-                    <a className='dropdown-item' href='#' onClick={() => { dispatch(logoutUser()) }}><li>Logout</li></a>
+                    <button className='dropdown-item' href='#' onClick={() => { dispatch(logoutUser()) }}><li>Logout</li></button>
                   </div>
                 </div>
                 )

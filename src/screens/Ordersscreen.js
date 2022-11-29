@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import React, { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { getUserOrders } from '../actions/orderActions'
 import Error from '../components/Error'
@@ -10,11 +10,11 @@ export default function Ordersscreen () {
   AOS.init()
   const dispatch = useDispatch()
   const orderstate = useSelector(state => state.getUserOrdersReducer)
-  const { orders, error, loading } = orderstate
+  const { orders, error, success, loading } = orderstate
 
   useEffect(() => {
     dispatch(getUserOrders())
-  }, [])
+  }, [dispatch])
 
   return (
     <div>
@@ -22,6 +22,7 @@ export default function Ordersscreen () {
       <hr />
       <div className='row justify-content-center'>
         {loading && (<Loading />)}
+        {success && (<Success />)}
         {error && (<Error error='Something went wrong' />)}
         {orders && orders.map(order => {
           return (
