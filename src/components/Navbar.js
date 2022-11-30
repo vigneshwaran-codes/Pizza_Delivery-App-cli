@@ -1,4 +1,5 @@
 import React from 'react'
+import Logo from '../images/pizza-icon.webp'
 import { useSelector, useDispatch } from 'react-redux'
 import { logoutUser } from '../actions/userActions'
 export default function Navbar () {
@@ -11,6 +12,8 @@ export default function Navbar () {
       <nav className='navbar navbar-expand-lg shadow-lg p-3 mb-5 bg-white rounded'>
         <a className='navbar-brand' href='/'>
           Yummy Slices!!!
+          {' '}
+        <img src={Logo} alt='logo' className='logo-icon' />
         </a>
         <button
           className='navbar-toggler'
@@ -28,7 +31,7 @@ export default function Navbar () {
             {currentUser
               ? (
                 <div className='dropdown mt-2'>
-                  <button style={{ color: 'black' }} className='dropdown-toggle' type='button' id='dropdownMenuButton' data-toggle='dropdown' aria-haspopup='true' aria-expanded='false'>
+                  <button style={{ color: 'black' }} className='dropdown-toggle btn-light-outline' type='button' id='dropdownMenuButton' data-toggle='dropdown' aria-haspopup='true' aria-expanded='false'>
                     {currentUser.name}
                   </button>
                   <div className='dropdown-menu' aria-labelledby='dropdownMenuButton'>

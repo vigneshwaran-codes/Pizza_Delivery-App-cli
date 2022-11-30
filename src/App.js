@@ -1,5 +1,5 @@
 import './App.css'
-import 'bootstrap'
+// import 'bootstrap'
 import { BrowserRouter, Route } from 'react-router-dom'
 import Navbar from './components/Navbar'
 import Homescreen from './screens/Homescreen'
